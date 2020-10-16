@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from './components/index';
+import { Header } from './containers/index';
 
 function App() {
   return (

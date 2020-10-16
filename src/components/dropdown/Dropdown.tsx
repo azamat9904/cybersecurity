@@ -1,30 +1,25 @@
 import React, { FunctionComponent, useState } from 'react';
-import classNames from 'classnames';
+import { DownOutlined } from '@ant-design/icons';
 
 import { ITag } from '../../types/interfaces';
-import { Tag } from '../index';
+import { CategoryList } from '../index';
 
 import "./Dropdown.scss";
 
 type Props = {
     text: string;
-    dropdownTags: ITag[]
+    dropdownTags: ITag[],
+    showDropdown: boolean;
+    toggleDropdown: (event: any) => void;
 }
 
-const Dropdown: FunctionComponent<Props> = ({ text, dropdownTags }) => {
-
-    const [showDropdown, setShowDropDown] = useState(false);
-
-    const toggleDropdown = () => {
-        setShowDropDown(!showDropdown);
-    }
-
+const Dropdown: FunctionComponent<Props> = ({ text, dropdownTags, showDropdown, toggleDropdown }) => {
     return (
-        <div className="dropdown">
-            <div className="dropdown__text" onMouseOver={toggleDropdown}>{text} <span>^</span></div>
-            <div className={classNames("dropdown__content", { "dropdown__content--show": showDropdown })}>
-                {dropdownTags.map((tag) => <Tag tag={tag} className="dropdown__item" />)}
-            </div>
+        <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+            <div className="dropdown__text">{text} <span ><DownOutlined className="dropdown__caret" /></span></div>
+            {
+                showDropdown && <div className="dropdown__wrapper"><CategoryList tags={dropdownTags} className="dropdown__content" /></div>
+            }
         </div>
     )
 }

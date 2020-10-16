@@ -3,12 +3,17 @@
     &__item{
         font-style: normal;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 20px;
         text-transform: uppercase;
         color: #FFFFFF;
         text-decoration: none;
         display: inline-block;
         padding:3px 7px;
+        transition:.2s;
+
+        &:hover{
+            color:#9850f7;
+        }
     }
 }
