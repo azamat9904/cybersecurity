@@ -13,7 +13,7 @@ type Props = {
 const CategoryList: FunctionComponent<Props> = ({ tags, className }) => {
     return (
         <div className={["category", className].join(" ")}>
-            {tags.map((tag) => <Tag tag={tag} className="category__item" />)}
+            {tags.map((tag) => <Tag tag={tag} className="category__item" key={tag.id} />)}
         </div>
     )
 }

@@ -13,7 +13,7 @@ const Tags: FunctionComponent<Props> = ({ tags }) => {
     return (
         <div className="tags">
             {
-                tags.map((tag) => <Tag tag={tag} className="tags__item" />)
+                tags.map((tag) => <Tag tag={tag} className="tags__item" key={tag.id} />)
             }
         </div>
     )

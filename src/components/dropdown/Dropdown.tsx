@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 
 import { ITag } from '../../types/interfaces';

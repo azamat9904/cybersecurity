@@ -1,0 +1,12 @@
+.ant-btn.button{
+    background: linear-gradient(135deg,#FD9A05,#7510F4);
+    color:#fff;
+    border: none;
+    transition: all .3s;
+
+    &:hover{
+        background: linear-gradient(135deg,#fd9a05e1,#7710f4e8);
+        color:#fff;
+        border:none;
+    }
+}

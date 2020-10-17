@@ -13,5 +13,16 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;;
+  }
+
+  &__left, &__right{
+    display: flex;
+    align-items: center;
+  }
+
+  &__wrapper{
+    margin:0 10px;
   }
 }
+

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import { MainContainer } from '../../hoc/index';
 import { ITag } from '../../types/interfaces';
-import { Logo, Tags, Dropdown } from '../index';
+import { Logo, Tags, Dropdown, Search, Button } from '../index';
 
 import './Header.scss';
 
@@ -17,14 +17,27 @@ const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown }
         <header className="header">
             <MainContainer>
                 <div className="header__content">
-                    <Logo />
-                    <Dropdown
-                        dropdownTags={tags}
-                        text="Категории"
-                        showDropdown={showDropdown}
-                        toggleDropdown={toggleDropdown}
-                    />
-                    <Tags tags={tags} />
+                    <div className="header__left">
+                        <Logo />
+                        <Dropdown
+                            dropdownTags={tags}
+                            text="Категории"
+                            showDropdown={showDropdown}
+                            toggleDropdown={toggleDropdown}
+                        />
+                        <Tags tags={tags} />
+                    </div>
+                    <div className="header__right">
+                        <div className="header__wrapper">
+                            <Search />
+                        </div>
+                        <div className="header__wrapper">
+                            <Button>Регистрация</Button>
+                        </div>
+                        <div className="header__wrapper">
+                            <Button>Войти</Button>
+                        </div>
+                    </div>
                 </div>
             </MainContainer>
         </header>

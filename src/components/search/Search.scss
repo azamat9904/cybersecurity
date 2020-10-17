@@ -1,0 +1,13 @@
+.search{
+
+    &__icon.anticon-search{
+       color:#fff;
+       font-size: 18px;
+       cursor: pointer;
+        transition: .2s;
+
+       &:hover{
+        color:rgba(255, 255, 255, 0.726);
+       }
+    }
+}

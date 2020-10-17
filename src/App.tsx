@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Header } from './containers/index';
+import { Layout } from './containers/index';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Layout >
+        Hello
+      </Layout>
     </div>
   );
 }

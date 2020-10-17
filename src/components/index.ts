@@ -4,3 +4,5 @@ export { default as Tags } from './tags/Tags';
 export { default as Tag } from './tag/Tag';
 export { default as Dropdown } from './dropdown/Dropdown';
 export { default as CategoryList } from './category-list/CategoryList';
+export { default as Search } from './search/Search';
+export { default as Button } from './button/Button';
