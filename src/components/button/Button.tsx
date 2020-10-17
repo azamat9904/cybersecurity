@@ -7,11 +7,12 @@ type Props = {
     children: React.ReactNode,
     onClick?: () => void;
     className?: string;
+    type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const Button: FunctionComponent<Props> = ({ children, onClick, className }) => {
+const Button: FunctionComponent<Props> = ({ children, onClick, className, type }) => {
     return (
-        <BaseButton className={["button", className].join(" ")} onClick={onClick}>{children}</BaseButton>
+        <BaseButton className={["button", className].join(" ")} onClick={onClick} type={type}>{children}</BaseButton>
     )
 }
 

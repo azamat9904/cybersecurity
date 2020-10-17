@@ -23,12 +23,12 @@
         height: 100%;
         position: relative;
         top:-40px;
+        position: relative;
+        z-index: 2;
     }
 }
 
 .introduction{
-    position: relative;
-    z-index: 2;
     color:#fff;
     text-align: center;
     flex:0 0 56%;
@@ -67,5 +67,5 @@
 }
 
 .sign-in{
-    flex:0 0 35%;
+    flex:0 0 32%;
 }

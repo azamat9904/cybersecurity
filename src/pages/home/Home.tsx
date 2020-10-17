@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Layout } from '../../containers/index';
-import { MainContainer } from '../../hoc';
-import { Button } from '../../components/index';
+import { MainContainer, ShadowedBox } from '../../hoc';
+import { Button, SignIn } from '../../components/index';
 
 import "./Home.scss";
 
@@ -18,7 +18,9 @@ const Home = () => {
                             <Button className="introduction__btn">Начать сейчас</Button>
                         </div>
                         <div className="sign-in">
-                            sign in
+                            <ShadowedBox>
+                                <SignIn />
+                            </ShadowedBox>
                         </div>
                     </div>
                 </MainContainer>
