@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, Fragment } from 'react';
 
 import { Header, Footer } from '../../components/index';
-import { tags } from '../../mock/mock';
+import { tags, attacks } from '../../mock/mock';
 
 import "./Layout.scss";
 
@@ -19,10 +19,10 @@ const Layout: FunctionComponent<Props> = ({ children }) => {
 
     return (
         <Fragment>
-            <Header tags={tags} toggleDropdown={toggleDropdown} showDropdown={showDropdown} />
+            <Header tags={tags} toggleDropdown={toggleDropdown} showDropdown={showDropdown} attacks={attacks} />
             <main className="main">
                 {children}
-                <Footer />
+                <Footer categories={attacks} />
             </main>
         </Fragment>
     )

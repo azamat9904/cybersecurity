@@ -18,7 +18,7 @@ const SignIn = () => {
                     <label htmlFor="email" className="sign-in-form__label">Пароль</label>
                     <Input placeholder="Введите пароль" name="email" type="email" />
                 </div>
-                <div className="sign-in-form__forget"><Button type="link" className="sign-in-form__btn">Forget password ?</Button></div>
+                <div className="sign-in-form__forget"><Button type="link" className="sign-in-form__btn">Забыли пароль ?</Button></div>
                 <div className="sign-in-form__submit">
                     <Button className="sign-in-form__submit-btn"> Войти </Button>
                 </div>

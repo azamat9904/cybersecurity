@@ -8,11 +8,12 @@ import './Header.scss';
 
 type Props = {
     tags: ITag[],
+    attacks: ITag[],
     showDropdown: boolean,
     toggleDropdown: (event: any) => void
 }
 
-const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown }) => {
+const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown, attacks }) => {
     return (
         <header className="header">
             <MainContainer>
@@ -20,7 +21,7 @@ const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown }
                     <div className="header__left">
                         <Logo />
                         <Dropdown
-                            dropdownTags={tags}
+                            dropdownTags={attacks}
                             text="Категории"
                             showDropdown={showDropdown}
                             toggleDropdown={toggleDropdown}
