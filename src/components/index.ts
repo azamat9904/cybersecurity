@@ -6,3 +6,4 @@ export { default as Dropdown } from './dropdown/Dropdown';
 export { default as CategoryList } from './category-list/CategoryList';
 export { default as Search } from './search/Search';
 export { default as Button } from './button/Button';
+export { default as Footer } from './footer/Footer';

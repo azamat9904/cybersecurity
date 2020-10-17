@@ -8,12 +8,13 @@
   height: 65px;
   background-color: $darkenColor;
   box-shadow: 0px 6px 6px rgba(21, 21, 21, 0.21);
+  z-index: 1000;
 
   &__content {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;;
+    justify-content: space-between;
   }
 
   &__left, &__right{

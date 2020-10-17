@@ -1,0 +1,10 @@
+.main{
+    margin-top:65px;   
+    display: grid;
+    height: calc( 100vh - 65px );
+    grid-template-rows: 100vh;
+}
+
+footer{
+    align-self: flex-end;
+}

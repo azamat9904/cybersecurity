@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Layout } from './containers/index';
+import { Home } from './pages/index';
+
 
 function App() {
   return (
     <div className="App">
-      <Layout >
-        Hello
-      </Layout>
+      <Home />
     </div>
   );
 }

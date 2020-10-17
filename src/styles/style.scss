@@ -16,13 +16,22 @@
     width: 6px;
   }
   *::-webkit-scrollbar-track {
-    background: #fff;
+    background: gray;
   }
+  
   *::-webkit-scrollbar-thumb {
-    background-color: rgb(238, 238, 238);
+    background-color: rgba(238, 238, 238, 0.808);
     border-radius: 20px;
   }
   
   body{
     font-family:'Open Sans','Montserrat', sans-serif;
+  }
+
+  html,
+  body,
+  #root,
+  .App,
+  .home-page{
+    height: calc( 100% - 65px);
   }
