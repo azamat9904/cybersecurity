@@ -8,3 +8,4 @@ export { default as Search } from './search/Search';
 export { default as Button } from './button/Button';
 export { default as Footer } from './footer/Footer';
 export { default as SignIn } from './sign-in/SignIn';
+export { default as SignUp } from './sign-up/SignUp';

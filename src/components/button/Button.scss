@@ -10,4 +10,10 @@
         border:none;
     }
 
+    &:disabled, &:disabled:hover{
+        background: linear-gradient(135deg,#fd9a05ab,#7710f4c0);
+        color:#fff;
+        border:none;
+    }
+
 }

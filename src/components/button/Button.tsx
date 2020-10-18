@@ -8,11 +8,23 @@ type Props = {
     onClick?: () => void;
     className?: string;
     type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+    htmlType?: 'button' | 'submit' | 'reset';
+    disabled?: boolean;
+    loading?: boolean;
 }
 
-const Button: FunctionComponent<Props> = ({ children, onClick, className, type }) => {
+const Button: FunctionComponent<Props> = ({ children, onClick, className, type, htmlType, loading, disabled }) => {
     return (
-        <BaseButton className={["button", className].join(" ")} onClick={onClick} type={type}>{children}</BaseButton>
+        <BaseButton
+            className={["button", className].join(" ")}
+            onClick={onClick}
+            type={type}
+            htmlType={htmlType}
+            loading={loading}
+            disabled={disabled}
+        >
+            {children}
+        </BaseButton>
     )
 }
 

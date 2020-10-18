@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Layout } from '../../containers/index';
 import { MainContainer, ShadowedBox } from '../../hoc';
-import { Button, SignIn } from '../../components/index';
+import { Button } from '../../components/index';
+import { SignIn } from '../../containers/index';
 
 import "./Home.scss";
 

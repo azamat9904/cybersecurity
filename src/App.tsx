@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { Home, SignIn, SignUp } from './pages/index';
 
-
 function App() {
   return (
     <div className="App">

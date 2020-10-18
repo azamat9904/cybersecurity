@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Layout } from '../../containers/index';
-import { SignIn as SignInForm } from '../../components/index';
+import { SignIn as SignInForm } from '../../containers/index';
 
 import "./SignIn.scss";
 
@@ -12,7 +12,6 @@ const SignIn = () => {
                 <div className="main-sign-in__wrapper">
                     <SignInForm />
                 </div>
-                <div>Hello</div>
             </div>
         </Layout>
     )
