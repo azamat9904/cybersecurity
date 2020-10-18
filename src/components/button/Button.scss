@@ -4,9 +4,10 @@
     border: none;
     transition: all .3s;
 
-    &:hover{
+    &:hover, &:active, &:focus{
         background: linear-gradient(135deg,#fd9a05e1,#7710f4e8);
         color:#fff;
         border:none;
     }
+
 }

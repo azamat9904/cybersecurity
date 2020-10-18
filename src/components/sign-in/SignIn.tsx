@@ -12,11 +12,11 @@ const SignIn = () => {
             <form className="sign-in-form">
                 <div className="sign-in-form__group">
                     <label htmlFor="email" className="sign-in-form__label">Логин</label>
-                    <Input placeholder="Введите логин" name="email" type="email" />
+                    <Input placeholder="Введите логин" name="email" type="email" className="sign-in-form__control" />
                 </div>
                 <div className="sign-in-form__group">
                     <label htmlFor="email" className="sign-in-form__label">Пароль</label>
-                    <Input placeholder="Введите пароль" name="email" type="email" />
+                    <Input placeholder="Введите пароль" name="password" type="password" className="sign-in-form__control" />
                 </div>
                 <div className="sign-in-form__forget"><Button type="link" className="sign-in-form__btn">Забыли пароль ?</Button></div>
                 <div className="sign-in-form__submit">

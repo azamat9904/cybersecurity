@@ -2,6 +2,7 @@ import { ITag } from "../types/interfaces";
 
 
 export const tags: ITag[] = [{ id: "1", text: 'курсы', url: 'url' }, { id: "2", text: "статьи", url: 'url' }];
+
 export const attacks: ITag[] = [
     {
         id: '1',

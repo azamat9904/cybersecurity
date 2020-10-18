@@ -21,7 +21,7 @@ const Footer: FunctionComponent<Props> = ({ categories }) => {
                 <div className="footer__wrapper">
                     <div className="footer__info">
                         <div className="footer__logo"><Logo /></div>
-                        <div className="footer__content">Ресурс видеоуроков для защиты от мошенников и разных видов аттак. Узнай о видах аттак, уловок, которые применяются в современном мире и защити себя и своих близких.</div>
+                        <div className="footer__content">Ресурс видеоуроков для защиты от мошенников и разных видов атак. Узнай о видах атак, уловок, которые применяются в современном мире и защити себя и своих близких.</div>
                     </div>
                     <div className="footer__categories">
                         <h4 className="footer__categories-name">Категории</h4>

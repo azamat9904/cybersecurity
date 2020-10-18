@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 
 import { MainContainer } from '../../hoc/index';
 import { ITag } from '../../types/interfaces';
@@ -33,10 +34,10 @@ const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown, 
                             <Search />
                         </div>
                         <div className="header__wrapper">
-                            <Button>Регистрация</Button>
+                            <Button><Link to="/signup">Регистрация</Link></Button>
                         </div>
                         <div className="header__wrapper">
-                            <Button>Войти</Button>
+                            <Button><Link to="/signin">Войти</Link></Button>
                         </div>
                     </div>
                 </div>
