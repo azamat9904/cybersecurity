@@ -18,3 +18,11 @@ export interface ILoginForm {
     email: string;
     password: string;
 }
+
+export interface IUser {
+    idToken: string | null;
+    email: string | null;
+    refreshToken: string | null;
+    expiresIn: number | null;
+    localId: string | null;
+}

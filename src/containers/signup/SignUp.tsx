@@ -2,9 +2,15 @@ import { withFormik, FormikErrors } from "formik";
 
 import { SignUp } from '../../components/index';
 import { IRegisterForm } from '../../types/interfaces';
+import authActions from '../../redux/auth/authActions';
+import { connect } from "react-redux";
+import { IUser } from '../../types/interfaces';
 
+interface MyFormProps {
+    signUp: (values: IRegisterForm) => void;
+}
 
-export default withFormik({
+const RegisterFormik = withFormik<MyFormProps, IRegisterForm>({
     mapPropsToValues: (): IRegisterForm => {
         return {
             email: "",
@@ -47,10 +53,14 @@ export default withFormik({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values));
-            setSubmitting(false);
-        }, 1000);
+    handleSubmit: (values, { setSubmitting, props }) => {
+        props.signUp(values);
+        setSubmitting(false);
     },
 })(SignUp);
+
+const mapDispatchToProps = {
+    signUp: authActions.signUp
+}
+
+export default connect(null, mapDispatchToProps)(RegisterFormik);
