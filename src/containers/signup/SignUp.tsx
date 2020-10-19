@@ -4,10 +4,10 @@ import { SignUp } from '../../components/index';
 import { IRegisterForm } from '../../types/interfaces';
 import authActions from '../../redux/auth/authActions';
 import { connect } from "react-redux";
-import { IUser } from '../../types/interfaces';
+import { variables, openNotification } from '../../util/helpers/index';
 
 interface MyFormProps {
-    signUp: (values: IRegisterForm) => void;
+    signUp: (values: IRegisterForm) => Promise<void>;
 }
 
 const RegisterFormik = withFormik<MyFormProps, IRegisterForm>({
@@ -53,8 +53,17 @@ const RegisterFormik = withFormik<MyFormProps, IRegisterForm>({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting, props }) => {
-        props.signUp(values);
+    handleSubmit: (values, { setSubmitting, setErrors, resetForm, props }) => {
+        props.signUp(values).then(() => {
+            openNotification("Успех", "Регистрация прошла успешно!", 2, "success");
+        }).catch(err => {
+            if (err.response.data.error.message === variables.EMAIL_EXISTS) {
+                setErrors({ email: "Такой пользователь существует" });
+                return;
+            }
+            openNotification("Ошибка", "Не удалось зарегистрироваться,попробуйте еще раз", 2, 'error');
+        });
+
         setSubmitting(false);
     },
 })(SignUp);
