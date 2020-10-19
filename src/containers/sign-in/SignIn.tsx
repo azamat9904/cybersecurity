@@ -1,11 +1,18 @@
 import { withFormik, FormikErrors } from "formik";
+import { RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { SignIn } from '../../components/index';
 import { ILoginForm } from '../../types/interfaces';
+import authActions from '../../redux/auth/authActions';
+import { openNotification } from '../../util/helpers/index';
 
+interface MyFormProps {
+    signIn: (values: ILoginForm) => Promise<void>;
+    router: RouteComponentProps
+}
 
-
-export default withFormik({
+const LoginFormik = withFormik<MyFormProps, ILoginForm>({
     mapPropsToValues: (): ILoginForm => {
         return {
             email: "",
@@ -28,10 +35,18 @@ export default withFormik({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values));
-            setSubmitting(false);
-        }, 1000);
+    handleSubmit: (values, { setSubmitting, props }) => {
+        props.signIn(values).then(() => {
+            props.router.history.push("/");
+        }).catch(err => {
+            openNotification("Ошибка", "Логин или пароль не правильный", 2, "error");
+        })
+        setSubmitting(false);
     },
 })(SignIn);
+
+const mapDispatchToProps = {
+    signIn: authActions.signIn
+}
+
+export default connect(null, mapDispatchToProps)(LoginFormik);

@@ -1,4 +1,4 @@
-import { IRegisterForm, IUser } from '../../types/interfaces';
+import { ILoginForm, IRegisterForm, IUser } from '../../types/interfaces';
 import { Dispatch } from 'redux';
 import auth from '../../util/api/auth';
 
@@ -21,4 +21,12 @@ const signUp = (user: IRegisterForm) => (dispatch: Dispatch): Promise<void> => {
         })
 }
 
-export default { signUp };
+const signIn = (user: ILoginForm) => (dispatch: Dispatch): Promise<void> => {
+    return auth
+        .signIn(user.email, user.password)
+        .then((data) => {
+            dispatch(setUser(data));
+        })
+}
+
+export default { signUp, signIn };

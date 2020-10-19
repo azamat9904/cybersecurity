@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, FunctionComponent } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
 import { Layout } from '../../containers/index';
 import { MainContainer, ShadowedBox } from '../../hoc';
@@ -7,7 +8,7 @@ import { SignIn } from '../../containers/index';
 
 import "./Home.scss";
 
-const Home = () => {
+const Home: FunctionComponent<RouteComponentProps> = (props) => {
     const plainTextBlock = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -61,7 +62,7 @@ const Home = () => {
                         </div>
                         <div className="sign-in">
                             <ShadowedBox>
-                                <SignIn />
+                                <SignIn router={props} />
                             </ShadowedBox>
                         </div>
                     </div>

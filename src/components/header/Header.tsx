@@ -2,19 +2,19 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { MainContainer } from '../../hoc/index';
-import { ITag } from '../../types/interfaces';
+import { ITag, IUser } from '../../types/interfaces';
 import { Logo, Tags, Dropdown, Search, Button } from '../index';
-
 import './Header.scss';
 
 type Props = {
     tags: ITag[],
     attacks: ITag[],
     showDropdown: boolean,
-    toggleDropdown: (event: any) => void
+    toggleDropdown: (event: any) => void;
+    user: IUser | null
 }
 
-const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown, attacks }) => {
+const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown, attacks, user }) => {
     return (
         <header className="header">
             <MainContainer>
@@ -33,12 +33,15 @@ const Header: FunctionComponent<Props> = ({ tags, showDropdown, toggleDropdown, 
                         <div className="header__wrapper">
                             <Search />
                         </div>
-                        <div className="header__wrapper">
-                            <Button><Link to="/signup">Регистрация</Link></Button>
-                        </div>
-                        <div className="header__wrapper">
-                            <Button><Link to="/signin">Войти</Link></Button>
-                        </div>
+                        {!user ? <>
+                            <div className="header__wrapper">
+                                <Button><Link to="/signup">Регистрация</Link></Button>
+                            </div>
+                            <div className="header__wrapper">
+                                <Button><Link to="/signin">Войти</Link></Button>
+                            </div>
+                        </> : <Dropdown text="Профиль" showDropdown={showDropdown} toggleDropdown={toggleDropdown} dropdownTags={[{ id: "1", text: "Профиль", url: "profile" }]} />
+                        }
                     </div>
                 </div>
             </MainContainer>
