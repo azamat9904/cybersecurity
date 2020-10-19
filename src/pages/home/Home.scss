@@ -1,4 +1,5 @@
 .main-content{
+    $self: &;
     background-image: url('../../assets//images/hacker.jpg');
     background-size: cover;
     background-position: center;
@@ -25,6 +26,18 @@
         top:-40px;
         position: relative;
         z-index: 2;
+    }
+
+    &--authed{
+
+        #{$self}__wrapper{
+            justify-content: center;
+            align-items: center;
+        }   
+
+        .introduction{
+            flex:0 0 60%;
+        }
     }
 }
 

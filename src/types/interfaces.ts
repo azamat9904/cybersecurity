@@ -20,9 +20,9 @@ export interface ILoginForm {
 }
 
 export interface IUser {
-    idToken: string | null;
-    email: string | null;
-    refreshToken: string | null;
-    expiresIn: number | null;
-    localId: string | null;
+    idToken: string;
+    email: string;
+    refreshToken: string;
+    expiresIn: number;
+    localId: string;
 }

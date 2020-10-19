@@ -35,12 +35,13 @@ const LoginFormik = withFormik<MyFormProps, ILoginForm>({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting, props }) => {
-        props.signIn(values).then(() => {
+    handleSubmit: async (values, { setSubmitting, props }) => {
+        try {
+            await props.signIn(values);
             props.router.history.push("/");
-        }).catch(err => {
+        } catch (err) {
             openNotification("Ошибка", "Логин или пароль не правильный", 2, "error");
-        })
+        }
         setSubmitting(false);
     },
 })(SignIn);

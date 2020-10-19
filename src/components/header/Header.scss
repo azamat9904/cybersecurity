@@ -22,8 +22,25 @@
     align-items: center;
   }
 
-  &__wrapper{
+  &__left{
+    flex:0 0 50%;
+  }
+
+  &__space{
     margin:0 10px;
+  }
+
+  &__wrapper{
+    display: flex;
+    align-items: center;
   }
 }
 
+button.forum-btn.ant-btn{
+  background: linear-gradient(135deg, #e338f3 20%, #c619d6 40%, #3a37e6);
+
+  &:hover{
+    background: linear-gradient(270deg, rgba(210, 36, 226, 0.87) 20%, #d21ee2 40%, #3330cc);
+
+  }
+}

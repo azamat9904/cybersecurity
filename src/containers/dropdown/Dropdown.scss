@@ -43,9 +43,22 @@
     }   
 
     &-profile{
-        #{$self} {
-            margin: 0;
-            background-color: #000;
+        margin:0;
+
+        #{$self}__content{
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            padding:0;
+
+            .category__item{
+                padding:9px 40px;
+                font-weight: 500;;
+            }
+            
+            &__wrapper{
+                padding-top: 5px;
+            }
         }
     }
 }

@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import { RouteComponentProps } from 'react-router-dom';
 
 import { SignUp } from '../../components/index';
-import { IRegisterForm } from '../../types/interfaces';
+import { IRegisterForm, IUser } from '../../types/interfaces';
 import authActions from '../../redux/auth/authActions';
 import { variables, openNotification } from '../../util/helpers/index';
 
 interface MyFormProps {
-    signUp: (values: IRegisterForm) => Promise<void>;
+    signUp: (values: IRegisterForm) => Promise<IUser>;
     router: RouteComponentProps
 }
 
@@ -54,17 +54,18 @@ const RegisterFormik = withFormik<MyFormProps, IRegisterForm>({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting, setErrors, props }) => {
-        props.signUp(values).then(() => {
+    handleSubmit: async (values, { setSubmitting, setErrors, props }) => {
+        try {
+            await props.signUp(values);
             openNotification("Успех", "Регистрация прошла успешно!", 2, "success");
             props.router.history.push('/signin');
-        }).catch(err => {
+        } catch (err) {
             if (err.response.data.error.message === variables.EMAIL_EXISTS) {
                 setErrors({ email: "Такой пользователь существует" });
                 return;
             }
             openNotification("Ошибка", "Не удалось зарегистрироваться,попробуйте еще раз", 2, 'error');
-        });
+        }
 
         setSubmitting(false);
     },

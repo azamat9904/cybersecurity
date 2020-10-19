@@ -1,14 +1,21 @@
 import React, { useRef, useEffect, FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
 
 import { Layout } from '../../containers/index';
 import { MainContainer, ShadowedBox } from '../../hoc';
 import { Button } from '../../components/index';
 import { SignIn } from '../../containers/index';
+import { IAppState } from '../../redux/store';
 
 import "./Home.scss";
 
-const Home: FunctionComponent<RouteComponentProps> = (props) => {
+type Props = {
+    isAuthenticated: boolean;
+}
+
+const Home: FunctionComponent<RouteComponentProps & Props> = (props) => {
     const plainTextBlock = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -19,7 +26,7 @@ const Home: FunctionComponent<RouteComponentProps> = (props) => {
          помогут тебе не стать жертвой злоумышленников. начни учить 
          прям сейчас совершенно бесплатно.`;
 
-        const possibleSpeed = [120, 50, 200, 300, 80];
+        const possibleSpeed = [20, 50, 70, 90, 100];
 
         let i = 0;
         let count = text?.length || 0;
@@ -35,9 +42,8 @@ const Home: FunctionComponent<RouteComponentProps> = (props) => {
                 clearTimeout(timeout);
                 return;
             }
-            const letter = text![i];
+            const letter = text![i++];
             plainTextBlock.current!.innerHTML += letter;
-            i++;
             const random = getRandom();
             timeout = setTimeout(startWriting, random);
         }
@@ -50,9 +56,10 @@ const Home: FunctionComponent<RouteComponentProps> = (props) => {
 
     }, []);
 
+    const classes = classNames("main-content", "main-content--authed")
     return <div className="home-page">
         <Layout>
-            <div className="main-content" >
+            <div className={classes} >
                 <MainContainer>
                     <div className="main-content__wrapper">
                         <div className="introduction">
@@ -60,11 +67,13 @@ const Home: FunctionComponent<RouteComponentProps> = (props) => {
                             <p className="introduction__text" ref={plainTextBlock}></p>
                             <Button className="introduction__btn">Начать сейчас</Button>
                         </div>
-                        <div className="sign-in">
-                            <ShadowedBox>
-                                <SignIn router={props} />
-                            </ShadowedBox>
-                        </div>
+                        {
+                            !props.isAuthenticated && <div className="sign-in">
+                                <ShadowedBox>
+                                    <SignIn router={props} />
+                                </ShadowedBox>
+                            </div>
+                        }
                     </div>
                 </MainContainer>
             </div>
@@ -72,4 +81,10 @@ const Home: FunctionComponent<RouteComponentProps> = (props) => {
     </div>
 }
 
-export default Home;
+const mapStateToProps = (state: IAppState) => {
+    return {
+        isAuthenticated: state.auth.user?.idToken != null
+    }
+}
+
+export default connect(mapStateToProps)(Home);
