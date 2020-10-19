@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { Switch } from 'antd';
 
-import { Logo, CategoryList } from '../index';
+import { Logo, List } from '../index';
 import { ITag } from '../../types/interfaces';
 import { MainContainer } from '../../hoc';
 import moon from '../../assets/images/moon.png';
@@ -26,7 +26,7 @@ const Footer: FunctionComponent<Props> = ({ categories }) => {
                     <div className="footer__categories">
                         <h4 className="footer__categories-name">Категории</h4>
                         <div className="footer__all-courses"><Link to="/all-courses" className="footer__all-courses-link">Все курсы</Link></div>
-                        <CategoryList tags={categories} className="footer__categories-list" />
+                        <List tags={categories} className="footer__categories-list" />
                     </div>
                     <div className="footer__background">
                         <h4 className="footer__background-title">Темы:</h4>

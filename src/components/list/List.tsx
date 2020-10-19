@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import { ITag } from '../../types/interfaces';
 import { Tag } from '../index';
 
-import "./CategoryList.scss";
+import "./List.scss";
 
 type Props = {
     tags: ITag[],

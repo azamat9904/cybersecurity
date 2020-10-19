@@ -1,6 +1,7 @@
 .dropdown{
     position: relative;
     margin:0 10px;
+    $self: &;
 
     &__text{
         font-style: normal;
@@ -41,4 +42,10 @@
         font-weight: bold;
     }   
 
+    &-profile{
+        #{$self} {
+            margin: 0;
+            background-color: #000;
+        }
+    }
 }

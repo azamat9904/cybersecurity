@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, Fragment } from 'react';
+import React, { FunctionComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { IAppState } from '../../redux/store';
@@ -14,18 +14,11 @@ type Props = {
 }
 
 const Layout: FunctionComponent<Props> = ({ children, user }) => {
-    const [showDropdown, setSowDropdown] = useState(false);
-
-    const toggleDropdown = () => {
-        setSowDropdown(!showDropdown);
-    }
 
     return (
         <Fragment>
             <Header
                 tags={tags}
-                toggleDropdown={toggleDropdown}
-                showDropdown={showDropdown}
                 attacks={attacks}
                 user={user}
             />
