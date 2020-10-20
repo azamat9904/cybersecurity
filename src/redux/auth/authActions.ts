@@ -36,12 +36,12 @@ const checkAuthTimeout = (expireationTime: number) => {
 
 const signIn = (user: ILoginForm) => async (dispatch: ThunkDispatch<IAppState, void, Action>) => {
     const data = await auth.signIn(user.email, user.password);
-    dispatch(setUser(data));
     const expirationDate = new Date(
         new Date().getTime() + data.expiresIn * 1000
     );
     localStorage.setItem('user', JSON.stringify(data));
     localStorage.setItem('expirationTime', expirationDate.toString());
+    dispatch(setUser(data));
     dispatch(checkAuthTimeout(data.expiresIn));
 }
 

@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useEffect, Fragment } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import React, { FunctionComponent, useEffect } from 'react';
+import { Route, Switch, Redirect, RouteProps } from 'react-router-dom';
 import { connect } from "react-redux";
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -25,22 +25,26 @@ const App: FunctionComponent<Props> = (props) => {
     return <Redirect to="/" />;
   };
 
+  const CustomRoute: FunctionComponent<{ onAuthentication: boolean } & RouteProps> = ({ onAuthentication, ...otherProps }) => {
+    if (onAuthentication && props.isAuthenticated) {
+      return <Route {...otherProps} />
+    }
+
+    if (!onAuthentication && !props.isAuthenticated) {
+      return <Route {...otherProps} />
+    }
+
+    return <Redirect to="/" />
+  }
+
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
-        {
-          !props.isAuthenticated && <Fragment>
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-          </Fragment>
-        }
-        {
-          props.isAuthenticated &&
-          <Fragment>
-            <Route path="/logout" render={() => <Logout />} />
-          </Fragment>
-        }
+        <CustomRoute onAuthentication={false} path="/signin" component={SignIn} />
+        <CustomRoute onAuthentication={false} path="/signup" component={SignUp} />
+        <CustomRoute onAuthentication={true} path="/logout" render={() => <Logout />} />
         <Route render={() => <Redirect to="/" />} />
       </Switch>
     </div >
